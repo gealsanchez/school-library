@@ -55,9 +55,9 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Enumerable <a name="about-project"></a>
+# 📖 School Library <a name="about-project"></a>
 
-In this project you will learn how to use a module inside your class. 
+Imagine that you are the librarian of OOP University, and you need a tool to record what books are in the library and who borrows them. The app that you will create will allow you to:
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -71,10 +71,9 @@ In this project you will learn how to use a module inside your class.
 
 ### Key Features <a name="key-features"></a>
 
-- Implementation of certain features of the Enumerable mixin from Ruby
-- Implements all? method
-- Implements any? method
-- Implements filter method
+-Add new students or teachers.
+-Add new books.
+-Save records of who borrowed a given book and when.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -112,7 +111,7 @@ Example command:
 Clone this repository to your desired folder:
 <ul>
 <li>cd my-folder</li>
-<li>git clone git@github.com:gealsanchez/enumerable.git</li>
+<li>git clone git@github.com:gealsanchez/school-library.git</li>
 </ul>
 
 <!--
@@ -144,7 +143,7 @@ Example command:
 
 To run the project, execute the following command:
 <ul>
-<li>ruby my_list.rb</li>
+<li>ruby *.rb</li>
 </ul>
 
 <!--
@@ -173,7 +172,9 @@ Example command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] Add graphical interface
+- [ ] **[use_the_"Decorator"_design_pattern]**
+- [ ] **[set_up_associations]**
+- [ ] **[add_basic_UI]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -207,6 +208,6 @@ I would like to thank the Microverse team for their invaluable resources
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/gealsanchez/enumerable/blob/dev/LICENSE) licensed.
+This project is [MIT](https://github.com/gealsanchez/school-library/blob/dev/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
