@@ -2,6 +2,7 @@ require_relative 'option'
 
 class Menu
   def initialize
+    @option = Option.new(self)
     @program = true
     methods_list
   end
@@ -22,11 +23,10 @@ class Menu
   end
 
   def select_option()
-    option = Option.new()
     while @program
       number = gets.chomp
       puts
-      option.option_selector(number)
+      @option.option_selector(number)
       methods_list
     end
 

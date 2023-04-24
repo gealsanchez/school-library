@@ -1,10 +1,11 @@
-require_relative './student'
-require_relative './teacher'
-require_relative './book'
-require_relative './rental'
+require_relative 'student'
+require_relative 'teacher'
+require_relative 'book'
+require_relative 'rental'
 
 class App
-  def initialize()
+  def initialize(option)
+    @option = option
     @books = []
     @people = []
     @rentals = []
@@ -42,6 +43,7 @@ class App
     puts
     puts 'Student created successfuly!'
     puts
+    @option.main.methods_list
   end
 
   def create_teacher
@@ -55,6 +57,7 @@ class App
     puts
     puts 'Teacher created successfuly!'
     puts
+    @option.main.methods_list
   end
 
   def create_book
@@ -92,11 +95,5 @@ class App
     @rentals.each do |rental|
       puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}" if rental.person.id == id
     end
-  end
-
-  def exit
-    puts
-    puts 'Come back soon!'
-    puts
   end
 end

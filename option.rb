@@ -1,8 +1,12 @@
 require_relative 'app'
 
 class Option
-  def initialize()
-    @app = App.new()
+
+  attr_accessor :main
+
+  def initialize(main)
+    @main = main
+    @app = App.new(self)
   end
 
   def option_selector(option)

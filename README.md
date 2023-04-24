@@ -74,6 +74,7 @@ Imagine that you are the librarian of OOP University, and you need a tool to rec
 -Add new students or teachers.
 -Add new books.
 -Save records of who borrowed a given book and when.
+-SOLID principles of OOP.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -94,10 +95,11 @@ To get a local copy up and running, follow these steps.
 ### Prerequisites
 
 In order to run this project you need:
+
 <ul>
     <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
   </ul>
-  
+
 <!--
 Example command:
 
@@ -109,6 +111,7 @@ Example command:
 ### Setup
 
 Clone this repository to your desired folder:
+
 <ul>
 <li>cd my-folder</li>
 <li>git clone git@github.com:gealsanchez/school-library.git</li>
@@ -126,6 +129,7 @@ Example commands:
 ### Install
 
 Install this project with:
+
 <ul>
 <li>bundle install</li>
 </ul>
@@ -142,6 +146,7 @@ Example command:
 ### Usage
 
 To run the project, execute the following command:
+
 <ul>
 <li>ruby *.rb</li>
 </ul>
@@ -166,15 +171,23 @@ Example command:
 - Twitter: [@twitterhandle](https://twitter.com/gealsanchez)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/gerson-sanchez-88309b57/)
 
+👤 **Author2**
+
+: Marcelo Alarcon Barrenechea
+
+🇧🇴 Bolivia 💓
+
+- GitHub: [@chelobotix](https://github.com/chelobotix)
+- Linkedin: [Marcelo Alarcon](https://www.linkedin.com/in/marceloalarconb/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[use_the_"Decorator"_design_pattern]**
-- [ ] **[set_up_associations]**
-- [ ] **[add_basic_UI]**
+- [ ] **[File Storage]**
+- [ ] **[Database Connection]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
