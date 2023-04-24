@@ -1,17 +1,14 @@
-require_relative './student'
-require_relative './teacher'
-require_relative './book'
-require_relative './rental'
+require_relative 'student'
+require_relative 'teacher'
+require_relative 'book'
+require_relative 'rental'
 
 class App
-  def initialize(menu)
-    @menu = menu
+  def initialize(option)
+    @option = option
     @books = []
     @people = []
     @rentals = []
-    puts
-    puts 'Welcome to School library App!'
-    puts
   end
 
   def list_all_books
@@ -20,8 +17,6 @@ class App
     else
       @books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
     end
-    puts
-    @menu.methods_list
   end
 
   def list_all_people
@@ -33,8 +28,6 @@ class App
         puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
       end
     end
-    puts
-    @menu.methods_list
   end
 
   def create_student
@@ -50,6 +43,7 @@ class App
     puts
     puts 'Student created successfuly!'
     puts
+    @option.main.methods_list
   end
 
   def create_teacher
@@ -63,21 +57,7 @@ class App
     puts
     puts 'Teacher created successfuly!'
     puts
-  end
-
-  def create_person
-    puts 'Do you want to create a student(1) or a teacher(2)? [Input the number]'
-    person = gets.chomp
-    case person
-    when '1'
-      create_student
-    when '2'
-      create_teacher
-    else
-      puts 'Please choose 1 or 2!'
-    end
-    puts
-    @menu.methods_list
+    @option.main.methods_list
   end
 
   def create_book
@@ -88,8 +68,6 @@ class App
     @books.push(Book.new(title, author))
     puts
     puts 'Book created successfully!'
-    puts
-    @menu.methods_list
   end
 
   def create_rental
@@ -108,8 +86,6 @@ class App
     date = gets.chomp
     @rentals.push(Rental.new(date, @books[book_number], @people[person_number]))
     puts 'Rental created successfully!'
-    puts
-    @menu.methods_list
   end
 
   def list_all_rentals_by_given_id
@@ -119,13 +95,5 @@ class App
     @rentals.each do |rental|
       puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}" if rental.person.id == id
     end
-    puts
-    @menu.methods_list
-  end
-
-  def exit
-    puts
-    puts 'Come back soon!'
-    puts
   end
 end
