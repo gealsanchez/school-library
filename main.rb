@@ -19,7 +19,7 @@ class Menu
       5 - Create a rental.
       6 - List all rentals for a given person id.
       7 - Exit application. \n "
-      select_option
+    select_option
   end
 
   def select_option()
@@ -29,7 +29,6 @@ class Menu
       @option.option_selector(number)
       methods_list
     end
-
   end
 end
 

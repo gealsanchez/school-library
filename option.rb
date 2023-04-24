@@ -1,7 +1,6 @@
 require_relative 'app'
 
 class Option
-
   attr_accessor :main
 
   def initialize(main)
@@ -10,13 +9,16 @@ class Option
   end
 
   def option_selector(option)
-    list_all_books if option == '1'
-    list_all_people if option == '2'
-    extra_option if option == '3'
-    create_book if option == '4'
-    create_rental if option == '5'
-    list_all_rentals_by_given_id if option == '6'
-    exit! if option == '7'
+    option_map = {
+      '1' => 'list_all_books',
+      '2' => 'list_all_people',
+      '3' => 'extra_option',
+      '4' => 'create_book',
+      '5' => 'create_rental',
+      '6' => 'list_all_rentals_by_given_id',
+      '7' => 'close_app'
+    }
+    send(option_map[option])
   end
 
   def extra_option
@@ -50,5 +52,9 @@ class Option
 
   def list_all_rentals_by_given_id
     @app.list_all_rentals_by_given_id
+  end
+
+  def close_app
+    exit!
   end
 end
