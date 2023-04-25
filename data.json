@@ -1,0 +1,1 @@
+{ "person": [ { "name": "Marcelo", "age": 41, "type": "Teacher", "specialization": "Math" }, { "name": "Natasha", "age": 4, "type": "Student", "parent_permission": true } ] } 

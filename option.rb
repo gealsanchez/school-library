@@ -1,10 +1,10 @@
 require_relative 'app'
 
 class Option
-  attr_accessor :main
+  attr_accessor :menu
 
-  def initialize(main)
-    @main = main
+  def initialize(menu)
+    @menu = menu
     @app = App.new(self)
   end
 

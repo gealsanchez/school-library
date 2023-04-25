@@ -6,8 +6,11 @@ require_relative 'rental'
 class App
   def initialize(option)
     @option = option
+    @storage = @option.menu.storage
+    @storage.json_to_hash
     @books = []
-    @people = []
+    # @people = @storage.hash_data.map{|key,value| if [:person].include? (key) }.compact
+    # puts @people
     @rentals = []
   end
 
@@ -20,13 +23,17 @@ class App
   end
 
   def list_all_people
-    if @people.empty?
-      puts 'No added person!'
-      puts
-    else
-      @people.each_with_index do |person, index|
-        puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-      end
+    # if @people.empty?
+    #   puts 'No added person!'
+    #   puts
+    # else
+    #   @people.each_with_index do |person, index|
+    #     puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    #   end
+    # end
+
+    @storage.hash_data.each do |key, value|
+      value.each {|key2, value2| puts key2["name"] } 
     end
   end
 

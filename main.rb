@@ -1,7 +1,11 @@
 require_relative 'option'
+require_relative 'storage'
 
 class Menu
+  attr_accessor :storage
+  
   def initialize
+    @storage = Storage.new()
     @option = Option.new(self)
     @program = true
     methods_list
