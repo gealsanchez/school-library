@@ -15,9 +15,14 @@ class Storage
     File.open(@full_path, mode)
   end
 
-  def add_person(object)
-    file = open_file('r')
-    puts file
+  def add_data
+    file = open_file('w')
+    file_write(file)
+  end
+
+  def file_write(file)
+    str = JSON(@hash_data)
+    File.write(file, str)
   end
 
   def get_data
@@ -29,7 +34,7 @@ class Storage
     str = get_data
     @hash_data = JSON(str)
   end
-    
+
 end
 
 # storage = Storage.new()

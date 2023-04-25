@@ -9,31 +9,22 @@ class App
     @storage = @option.menu.storage
     @storage.json_to_hash
     @books = []
-    # @people = @storage.hash_data.map{|key,value| if [:person].include? (key) }.compact
-    # puts @people
     @rentals = []
   end
 
   def list_all_books
-    if @books.empty?
-      puts 'No added book!'
-    else
-      @books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
+    @storage.hash_data.each do |key, value|
+      if( key == "book")
+        value.each { |elem| puts "Title: #{elem["title"]} Author: #{elem["author"]}" }
+      end
     end
   end
 
   def list_all_people
-    # if @people.empty?
-    #   puts 'No added person!'
-    #   puts
-    # else
-    #   @people.each_with_index do |person, index|
-    #     puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-    #   end
-    # end
-
     @storage.hash_data.each do |key, value|
-      value.each {|key2, value2| puts key2["name"] } 
+      if( key == "person")
+        value.each { |elem| puts "Id: #{elem["id"]} Name: #{elem["name"]} age: #{elem["age"]} type: #{elem["type"]}" }
+      end
     end
   end
 
@@ -44,13 +35,13 @@ class App
     name = gets.chomp
     print 'Has parent permission? [Y/N]: '
     parent_permission = gets.chomp.downcase == 'y'
-    print 'Classroom: '
-    classroom = gets.chomp
-    @people.push(Student.new(classroom, age, name: name, parent_permission: parent_permission))
+    student1 = Student.new("B1", age, name: name, parent_permission: parent_permission)
+    @storage.hash_data["person"] << {id: student1.id, name: student1.name, age: student1.age, parent_permission: true}
+    @storage.add_data
     puts
     puts 'Student created successfuly!'
     puts
-    @option.main.methods_list
+    @option.menu.methods_list
   end
 
   def create_teacher
@@ -60,11 +51,13 @@ class App
     name = gets.chomp
     print 'Specialization: '
     specialization = gets.chomp
-    @people.push(Teacher.new(age, specialization, name: name))
+    teacher1 = Teacher.new(age, specialization, name: name)
+    @storage.hash_data["person"] << {id: teacher1.id, name: teacher1.name, age: teacher1.age, specialization: teacher1.specialization}
+    @storage.add_data
     puts
     puts 'Teacher created successfuly!'
     puts
-    @option.main.methods_list
+    @option.menu.methods_list
   end
 
   def create_book
@@ -72,26 +65,45 @@ class App
     title = gets.chomp
     print 'Author: '
     author = gets.chomp
-    @books.push(Book.new(title, author))
+    book1 = Book.new(title, author)
+    @storage.hash_data["book"] << {title: book1.title, author: book1.author}
+    @storage.add_data
     puts
     puts 'Book created successfully!'
   end
 
   def create_rental
     puts 'Select a book from the following list by the number on the left'
-    @books.each_with_index { |book, index| puts "#{index}) Title: '#{book.title}', Author: #{book.author}" }
+
+    @storage.hash_data.each do |key, value|
+      if( key == "book")
+        value.each_with_index { |elem, index| puts "#{index}) Title: #{elem["title"]} Author: #{elem["author"]}" }
+      end
+    end
     book_number = gets.chomp.to_i
     puts
 
     puts 'Select a person from the following list by the number on the left'
-    @people.each_with_index do |person, index|
-      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    @storage.hash_data.each do |key, value|
+      if( key == "person")
+        value.each_with_index { |elem, index| puts "#{index}) Name: #{elem["name"]}" }
+      end
     end
     person_number = gets.chomp.to_i
 
     print 'Date: '
     date = gets.chomp
-    @rentals.push(Rental.new(date, @books[book_number], @people[person_number]))
+    person1 = Person.new(
+      @storage.hash_data["person"][person_number]["age"],
+      name: @storage.hash_data["person"][person_number]["name"]
+    )
+    book1 = Book.new(
+      @storage.hash_data["book"][book_number]["title"],
+      @storage.hash_data["book"][book_number]["author"]
+    )
+    rental1 = (Rental.new(date, book1, person1))
+    @storage.hash_data["rental"] << {date: rental1.date, book: {title: rental1.book.title, author: rental1.book.author}, person: {id: rental1.person.id, name: rental1.person.name, age: rental1.person.age}}
+    @storage.add_data
     puts 'Rental created successfully!'
   end
 
