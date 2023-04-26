@@ -9,8 +9,12 @@ describe Book do
     @date = '04/26/2023'
   end
   context 'When testing the Book class' do
-    it 'Testing a title and author a Book Object must be returned' do
+    it 'Book Object must be returned' do
       expect(@book).to be_an_instance_of Book
+    end
+
+    it 'return correct Title' do
+      expect(@book.title).to eql('Barcelona')
     end
 
     it 'Rented Book should be added to book rental list' do

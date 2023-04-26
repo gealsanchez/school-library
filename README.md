@@ -76,6 +76,7 @@ Imagine that you are the librarian of OOP University, and you need a tool to rec
 -Save records of who borrowed a given book and when.
 -SOLID principles of OOP.
 -File Storage
+-RSpec Testing
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -187,7 +188,6 @@ Example command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[File Storage]**
 - [ ] **[Database Connection]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
