@@ -75,6 +75,7 @@ Imagine that you are the librarian of OOP University, and you need a tool to rec
 -Add new books.
 -Save records of who borrowed a given book and when.
 -SOLID principles of OOP.
+-File Storage
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -19,19 +19,13 @@ class Storage
   end
 
   def open_file(path, key)
-    if (File.exist?(path) && !File.zero?(path))
+    if File.exist?(path) && !File.zero?(path)
       file = File.open(path, 'r')
       str = file.read
       aux_hash = JSON(str)
-      if(key == "person")
-        @person = aux_hash[key]
-      end
-      if(key == "book")
-        @book = aux_hash[key]
-      end
-      if(key == "rental")
-        @rental = aux_hash[key]
-      end
+      @person = aux_hash[key] if key == 'person'
+      @book = aux_hash[key] if key == 'book'
+      @rental = aux_hash[key] if key == 'rental'
     else
       puts key
       create_file(path, key)
@@ -39,28 +33,26 @@ class Storage
   end
 
   def create_file(path, key)
-    if(key == "person")
+    case key
+    when 'person'
       File.write(path, '{"person" : []}')
-    elsif (key == "book")
+    when 'book'
       File.write(path, '{"book" : []}')
-    elsif (key == "rental")
+    when 'rental'
       File.write(path, '{"rental" : []}')
     end
   end
 
   def add_data(path, target, key)
-    file = File.open(path, 'w')
-    hash = {key => target}
+    File.open(path, 'w')
+    hash = { key => target }
     str = JSON(hash)
     File.write(path, str)
-
   end
 
   def acquire_data
-    open_file(@person_path, "person")
-    open_file(@book_path, "book")
-    open_file(@rental_path, "rental")
+    open_file(@person_path, 'person')
+    open_file(@book_path, 'book')
+    open_file(@rental_path, 'rental')
   end
-
 end
-
