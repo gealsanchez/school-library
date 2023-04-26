@@ -19,7 +19,7 @@ class Storage
   end
 
   def open_file(path, key)
-    if File.exist?(path) && !File.zero?(path)
+    if File.exist?(path) && !File.empty?(path)
       file = File.open(path, 'r')
       str = file.read
       aux_hash = JSON(str)
