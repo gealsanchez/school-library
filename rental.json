@@ -1,0 +1,14 @@
+{
+  "rental": [
+    {
+      "date": "12-02-2023",
+      "book": { "title": "Amor en tiempos del colera", "author": "Garcia Marquez" },
+      "person": { "id": 692, "name": "Gerson", "age": 43 }
+    },
+    {
+      "date": "02-24-2023",
+      "book": { "title": "Lord of the Rings", "author": "Tolkiens" },
+      "person": { "id": 42, "name": "Alana", "age": 5 }
+    }
+  ]
+}

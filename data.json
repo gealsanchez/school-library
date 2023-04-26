@@ -1,1 +1,19 @@
-{"person":[{"id":933,"name":"Natasha","age":4,"parent_permission":true,"type":"student"},{"id":965,"name":"Gerson","age":43,"specialization":"Math","type":"teacher"}],"book":[{"title":"Rome","author":"Smith"},{"title":"Lord of the Rings","author":"Tolkiens"},{"title":"Amor en tiempos del colera","author":"Garcia Marquez"},{"title":"Crimen y Castigo","author":"Dowstoyesky"}],"rental":[{"date":"01-01-2023","book":{"title":"Rome","author":"Smith"},"person":{"id":932,"name":"Natasha","age":4}}]}
+{
+  "person": [
+    { "id": 797, "name": "Natasha", "age": 4, "parent_permission": true },
+    { "id": 692, "name": "Gerson", "age": 43, "specialization": "Math" }
+  ],
+  "book": [
+    { "title": "Rome", "author": "Smith" },
+    { "title": "Lord of the Rings", "author": "Tolkiens" },
+    { "title": "Amor en tiempos del colera", "author": "Garcia Marquez" },
+    { "title": "Crimen y Castigo", "author": "Dowstoyesky" }
+  ],
+  "rental": [
+    {
+      "date": "12-02-2023",
+      "book": { "title": "Amor en tiempos del colera", "author": "Garcia Marquez" },
+      "person": { "id": 692, "name": "Gerson", "age": 43 }
+    }
+  ]
+}

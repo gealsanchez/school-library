@@ -5,10 +5,15 @@ class Menu
   attr_accessor :storage
 
   def initialize
-    @storage = Storage.new()
-    @option = Option.new(self)
+    @storage = Storage.new
     @program = true
+    acquire_data
+    @option = Option.new(self)
     methods_list
+  end
+
+  def acquire_data
+    @storage.acquire_data
   end
 
   def methods_list

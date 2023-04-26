@@ -1,42 +1,66 @@
 require 'json'
+require 'pry'
 
 class Storage
-
-  attr_accessor :hash_data
+  attr_accessor :person, :book, :rental
+  attr_reader :person_path, :book_path, :rental_path
 
   def initialize
-    @hash_data = {}
+    @person = []
+    @book = []
+    @rental = []
     dir = File.dirname(__FILE__)
-    file_name = 'data.json'
-    @full_path = File.join(dir, file_name)
+    file_person = 'person.json'
+    file_book = 'book.json'
+    file_rental = 'rental.json'
+    @person_path = File.join(dir, file_person)
+    @book_path = File.join(dir, file_book)
+    @rental_path = File.join(dir, file_rental)
   end
 
-  def open_file(mode)
-    File.open(@full_path, mode)
+  def open_file(path, key)
+    if (File.exist?(path) && !File.zero?(path))
+      file = File.open(path, 'r')
+      str = file.read
+      aux_hash = JSON(str)
+      if(key == "person")
+        @person = aux_hash[key]
+      end
+      if(key == "book")
+        @book = aux_hash[key]
+      end
+      if(key == "rental")
+        @rental = aux_hash[key]
+      end
+    else
+      puts key
+      create_file(path, key)
+    end
   end
 
-  def add_data
-    file = open_file('w')
-    file_write(file)
+  def create_file(path, key)
+    if(key == "person")
+      File.write(path, '{"person" : []}')
+    elsif (key == "book")
+      File.write(path, '{"book" : []}')
+    elsif (key == "rental")
+      File.write(path, '{"rental" : []}')
+    end
   end
 
-  def file_write(file)
-    str = JSON(@hash_data)
-    File.write(file, str)
+  def add_data(path, target, key)
+    file = File.open(path, 'w')
+    hash = {key => target}
+    str = JSON(hash)
+    File.write(path, str)
+
   end
 
-  def get_data
-    file = open_file('r')
-    file.read
-  end
-
-  def json_to_hash
-    str = get_data
-    @hash_data = JSON(str)
+  def acquire_data
+    open_file(@person_path, "person")
+    open_file(@book_path, "book")
+    open_file(@rental_path, "rental")
   end
 
 end
 
-# storage = Storage.new()
-# storage.json_to_hash
-# puts storage.hash_data
