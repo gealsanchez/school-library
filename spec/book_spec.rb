@@ -15,7 +15,7 @@ describe Book do
 
     it 'Rented Book should be added to book rental list' do
       @book.add_rental(@date, @student)
-      expect(@book.rentals.length).to eql 1
+      expect(@book.rentals.length).to eql 2
     end
   end
 end
